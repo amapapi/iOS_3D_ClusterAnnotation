@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A6742916-E2D7-4B7A-8576-212466835A84</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iOS_3D_ClusterAnnotation</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>966E6682-869E-4CFD-884B-9CCD06D0EBFB</key>
+		<string>https://github.com/cysgit/iOS_3D_ClusterAnnotation.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iOS_3D_ClusterAnnotation.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>966E6682-869E-4CFD-884B-9CCD06D0EBFB</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cysgit/iOS_3D_ClusterAnnotation.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>966E6682-869E-4CFD-884B-9CCD06D0EBFB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>966E6682-869E-4CFD-884B-9CCD06D0EBFB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS_3D_ClusterAnnotation</string>
+		</dict>
+	</array>
+</dict>
+</plist>
