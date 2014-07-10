@@ -12,4 +12,6 @@ build/
 *.mode2v3
 
 xcuserdata
-*.xccheckout 
+*.xccheckout
+
+iOS_3D_ClusterAnnotation/Configuration/APIKey.h 

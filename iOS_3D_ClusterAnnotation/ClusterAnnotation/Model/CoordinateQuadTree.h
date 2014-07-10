@@ -10,17 +10,9 @@
 #import <MAMapKit/MAMapKit.h>
 #import "QuadTree.h"
 
-@protocol CoordinateQuadTreeDelegate <NSObject>
-
-- (void)coordinateQuadTreeDidBuild:(QuadTreeNode *)root;
-
-@end
-
-
 @interface CoordinateQuadTree : NSObject
 
 @property (nonatomic, assign) QuadTreeNode * root;
-@property (nonatomic, strong) id<CoordinateQuadTreeDelegate> delegate;
 
 - (void)buildTreeWithPOIs:(NSArray *)pois;
 - (void)clean;
