@@ -170,7 +170,6 @@ BoundingBox quadTreeNodeDataArrayForPOIs(QuadTreeNodeData *dataArray, NSArray * 
     NSLog(@"build tree.");
     /*建立四叉树索引. */
     self.root = QuadTreeBuildWithData(dataArray, [pois count], maxBounding, 4);
-    [self.delegate coordinateQuadTreeDidBuild:self.root];
 }
 
 #pragma mark Life Cycle

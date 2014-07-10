@@ -14,7 +14,7 @@
 
 #define kCalloutViewMargin -8
 
-@interface AnnotationClusterViewController ()<UITableViewDelegate, CoordinateQuadTreeDelegate>
+@interface AnnotationClusterViewController ()<UITableViewDelegate>
 
 @property (nonatomic, strong) CoordinateQuadTree* coordinateQuadTree;
 
@@ -45,13 +45,11 @@
     [toRemove minusSet:after];
     
     /* 更新. */
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^
-    {
+    dispatch_async(dispatch_get_main_queue(), ^{
         [self.mapView addAnnotations:[toAdd allObjects]];
         [self.mapView removeAnnotations:[toRemove allObjects]];
-    }];
+    });
 }
-
 
 - (void)addAnnotationsToMapView:(MAMapView *)mapView
 {
@@ -68,122 +66,8 @@
     NSArray *annotations = [self.coordinateQuadTree clusteredAnnotationsWithinMapRect:mapView.visibleMapRect
                                                                         withZoomScale:zoomScale
                                                                          andZoomLevel:mapView.zoomLevel];
-   
     /* 更新annotation. */
     [self updateMapViewAnnotationsWithAnnotations:annotations];
-}
-
-#pragma mark - MAMapViewDelegate
-
-- (void)mapView:(MAMapView *)mapView regionDidChangeAnimated:(BOOL)animated
-{
-    /* mapView区域变化时重算annotation. */
-    [[NSOperationQueue new] addOperationWithBlock:^
-    {
-        [self addAnnotationsToMapView:mapView];
-    }];
-}
-
-- (void)mapView:(MAMapView *)mapView annotationView:(MAAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
-{
-    id<MAAnnotation> annotation = view.annotation;
-    
-    if ([annotation isKindOfClass:[ClusterAnnotation class]])
-    {
-        ClusterAnnotation *clusterAnnotation = (ClusterAnnotation*)annotation;
-        
-        PoiDetailViewController *detail = [[PoiDetailViewController alloc] init];
-        detail.poi = [clusterAnnotation.pois lastObject];
-        
-        /* 进入POI详情页面. */
-        [self.navigationController pushViewController:detail animated:YES];
-    }
-}
-
-- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
-{
-    if ([annotation isKindOfClass:[ClusterAnnotation class]])
-    {
-        static NSString *const AnnotatioViewReuseID = @"AnnotatioViewReuseID";
-        
-        ClusterAnnotationView *annotationView = (ClusterAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:AnnotatioViewReuseID];
-        
-        if (!annotationView)
-        {
-            annotationView = [[ClusterAnnotationView alloc] initWithAnnotation:annotation
-                                                               reuseIdentifier:AnnotatioViewReuseID];
-        }
-        
-        annotationView.annotation = annotation;
-        annotationView.canShowCallout = YES;
-        annotationView.count = [(ClusterAnnotation *)annotation count];
-        if (annotationView.count == 1)
-        {
-            annotationView.rightCalloutAccessoryView    = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        }
-        
-        return annotationView;
-    }
-    
-    return nil;
-}
-
-- (void)mapView:(MAMapView *)mapView didAddAnnotationViews:(NSArray *)views
-{
-    for (UIView *view in views)
-    {
-        [self addBounceAnnimationToView:view];
-    }
-}
-
-#pragma mark - AMapSearchDelegate
-
-/* POI 搜索回调. */
-- (void)onPlaceSearchDone:(AMapPlaceSearchRequest *)request response:(AMapPlaceSearchResponse *)respons
-{
-    if (respons.pois.count == 0)
-    {
-        return;
-    }
-    
-    [[NSOperationQueue new] addOperationWithBlock:^
-     {
-         [self.coordinateQuadTree buildTreeWithPOIs:respons.pois];
-     }];
-    
-    /* 如果只有一个结果，设置其为中心点. */
-    if (respons.pois.count == 1)
-    {
-        self.mapView.centerCoordinate = [respons.pois[0] coordinate];
-    }
-    /* 如果有多个结果, 设置地图使所有的annotation都可见. */
-    else
-    {
-        [self.mapView showAnnotations:self.mapView.annotations animated:NO];
-    }
-}
-
-#pragma mark - CoordinateQuadTreeDelegate
-
-- (void)coordinateQuadTreeDidBuild:(QuadTreeNode *)root
-{
-    NSLog(@"First time calculate annotations.");
-    [self addAnnotationsToMapView:self.mapView];
-}
-
-#pragma mark - Utility
-
-/* 搜索POI. */
-- (void)searchPoi
-{
-    AMapPlaceSearchRequest *request = [[AMapPlaceSearchRequest alloc] init];
-    
-    request.searchType          = AMapSearchType_PlaceKeyword;
-    request.keywords            = @"Apple";
-    request.city                = @[@"010"];
-    request.requireExtension    = YES;
-    
-    [self.search AMapPlaceSearch:request];
 }
 
 /* annotation弹出的动画. */
@@ -206,6 +90,121 @@
     [view.layer addAnimation:bounceAnimation forKey:@"bounce"];
 }
 
+#pragma mark - MAMapViewDelegate
+
+- (void)mapView:(MAMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
+    /* mapView区域变化时重算annotation. */
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self addAnnotationsToMapView:self.mapView];
+    });
+
+}
+
+- (void)mapView:(MAMapView *)mapView annotationView:(MAAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    id<MAAnnotation> annotation = view.annotation;
+    
+    if ([annotation isKindOfClass:[ClusterAnnotation class]])
+    {
+        ClusterAnnotation *clusterAnnotation = (ClusterAnnotation*)annotation;
+        
+        PoiDetailViewController *detail = [[PoiDetailViewController alloc] init];
+        detail.poi = [clusterAnnotation.pois lastObject];
+        
+        /* 进入POI详情页面. */
+        [self.navigationController pushViewController:detail animated:YES];
+    }
+}
+
+- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[ClusterAnnotation class]])
+    {
+        /* dequeue重用annotationView. */
+        static NSString *const AnnotatioViewReuseID = @"AnnotatioViewReuseID";
+        
+        ClusterAnnotationView *annotationView = (ClusterAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:AnnotatioViewReuseID];
+        
+        if (!annotationView)
+        {
+            annotationView = [[ClusterAnnotationView alloc] initWithAnnotation:annotation
+                                                               reuseIdentifier:AnnotatioViewReuseID];
+        }
+        
+        /* 设置annotationView的属性. */
+        annotationView.annotation = annotation;
+        annotationView.count = [(ClusterAnnotation *)annotation count];
+        
+        /* 设置annotationView的callout属性和calloutView. */
+        annotationView.canShowCallout = YES;
+        if (annotationView.count == 1)
+        {
+            annotationView.rightCalloutAccessoryView    = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        }
+        
+        return annotationView;
+    }
+    
+    return nil;
+}
+
+- (void)mapView:(MAMapView *)mapView didAddAnnotationViews:(NSArray *)views
+{
+    /* 为新添的annotationView添加弹出动画. */
+    for (UIView *view in views)
+    {
+        [self addBounceAnnimationToView:view];
+    }
+}
+
+#pragma mark - SearchPOI
+
+/* 搜索POI. */
+- (void)searchPoiWithKeyword:(NSString *)keyword
+{
+    AMapPlaceSearchRequest *request = [[AMapPlaceSearchRequest alloc] init];
+    
+    request.searchType          = AMapSearchType_PlaceKeyword;
+    request.keywords            = keyword;
+    request.city                = @[@"010"];
+    request.requireExtension    = YES;
+    
+    [self.search AMapPlaceSearch:request];
+}
+
+/* POI 搜索回调. */
+- (void)onPlaceSearchDone:(AMapPlaceSearchRequest *)request response:(AMapPlaceSearchResponse *)respons
+{
+    if (respons.pois.count == 0)
+    {
+        return;
+    }
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        /* 建立四叉树. */
+        [self.coordinateQuadTree buildTreeWithPOIs:respons.pois];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            /* 建树完成，计算当前mapView区域内需要显示的annotation. */
+            NSLog(@"First time calculate annotations.");
+            [self addAnnotationsToMapView:self.mapView];
+
+        });
+    });
+    
+    /* 如果只有一个结果，设置其为中心点. */
+    if (respons.pois.count == 1)
+    {
+        self.mapView.centerCoordinate = [respons.pois[0] coordinate];
+    }
+    /* 如果有多个结果, 设置地图使所有的annotation都可见. */
+    else
+    {
+        [self.mapView showAnnotations:self.mapView.annotations animated:NO];
+    }
+}
+
 #pragma mark - Life Cycle
 
 - (id)init
@@ -213,7 +212,6 @@
     if (self = [super init])
     {
         self.coordinateQuadTree = [[CoordinateQuadTree alloc] init];
-        self.coordinateQuadTree.delegate = self;
         
         [self setTitle:@"Cluster Annotations"];
     }
@@ -225,7 +223,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self searchPoi];
+    [self searchPoiWithKeyword:@"Apple"];
 }
 
 - (void)viewDidUnload

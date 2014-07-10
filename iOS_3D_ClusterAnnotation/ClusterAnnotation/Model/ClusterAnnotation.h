@@ -12,7 +12,7 @@
 
 @interface ClusterAnnotation : NSObject<MAAnnotation>
 
-@property (assign, nonatomic) CLLocationCoordinate2D coordinate;
+@property (assign, nonatomic) CLLocationCoordinate2D coordinate; //poi的平均位置
 @property (assign, nonatomic) NSInteger count;
 @property (nonatomic, strong) NSMutableArray *pois;
 @property (nonatomic, strong) NSString *title;

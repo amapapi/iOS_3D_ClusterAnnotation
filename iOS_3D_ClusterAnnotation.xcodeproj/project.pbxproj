@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C81D4FEE196D53AF00099DAC /* ClusterAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D4FE6196D53AF00099DAC /* ClusterAnnotation.m */; };
+		C81D4FEF196D53AF00099DAC /* CoordinateQuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D4FE8196D53AF00099DAC /* CoordinateQuadTree.m */; };
+		C81D4FF0196D53AF00099DAC /* QuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D4FEA196D53AF00099DAC /* QuadTree.m */; };
+		C81D4FF1196D53AF00099DAC /* ClusterAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D4FED196D53AF00099DAC /* ClusterAnnotationView.m */; };
+		C81D4FFA196D53C500099DAC /* AnnotationClusterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D4FF5196D53C500099DAC /* AnnotationClusterViewController.m */; };
+		C81D4FFB196D53C500099DAC /* BaseMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D4FF7196D53C500099DAC /* BaseMapViewController.m */; };
+		C81D4FFC196D53C500099DAC /* PoiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C81D4FF9196D53C500099DAC /* PoiDetailViewController.m */; };
 		C84710B9196B96DC00ED0DD7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C84710B8196B96DC00ED0DD7 /* Foundation.framework */; };
 		C84710BB196B96DC00ED0DD7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C84710BA196B96DC00ED0DD7 /* CoreGraphics.framework */; };
 		C84710BD196B96DC00ED0DD7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C84710BC196B96DC00ED0DD7 /* UIKit.framework */; };
@@ -23,19 +30,27 @@
 		C847111D196BC58800ED0DD7 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C847111C196BC58800ED0DD7 /* libz.1.2.5.dylib */; };
 		C8471136196BC77D00ED0DD7 /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8471135196BC77D00ED0DD7 /* AMapSearchKit.framework */; };
 		C8471148196BCA1300ED0DD7 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C8471147196BCA1300ED0DD7 /* AMap.bundle */; };
-		C8471154196BCDEA00ED0DD7 /* AnnotationClusterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C847114F196BCDEA00ED0DD7 /* AnnotationClusterViewController.m */; };
-		C8471155196BCDEA00ED0DD7 /* BaseMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8471151196BCDEA00ED0DD7 /* BaseMapViewController.m */; };
-		C8471156196BCDEA00ED0DD7 /* PoiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8471153196BCDEA00ED0DD7 /* PoiDetailViewController.m */; };
-		C847115E196BCE5900ED0DD7 /* ClusterAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8471159196BCE5900ED0DD7 /* ClusterAnnotationView.m */; };
-		C847116A196BCEA200ED0DD7 /* ClusterAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C8471163196BCEA200ED0DD7 /* ClusterAnnotation.m */; };
-		C847116B196BCEA200ED0DD7 /* CoordinateQuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = C8471165196BCEA200ED0DD7 /* CoordinateQuadTree.m */; };
-		C847116D196BCEA200ED0DD7 /* QuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = C8471169196BCEA200ED0DD7 /* QuadTree.m */; };
 		C8F1DB31196D1A2C007BC6EC /* icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8F1DB2E196D1A2C007BC6EC /* icon-40@2x.png */; };
 		C8F1DB32196D1A2C007BC6EC /* icon-29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8F1DB2F196D1A2C007BC6EC /* icon-29@2x.png */; };
 		C8F1DB33196D1A2C007BC6EC /* icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8F1DB30196D1A2C007BC6EC /* icon-60@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C81D4FE5196D53AF00099DAC /* ClusterAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterAnnotation.h; sourceTree = "<group>"; };
+		C81D4FE6196D53AF00099DAC /* ClusterAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterAnnotation.m; sourceTree = "<group>"; };
+		C81D4FE7196D53AF00099DAC /* CoordinateQuadTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateQuadTree.h; sourceTree = "<group>"; };
+		C81D4FE8196D53AF00099DAC /* CoordinateQuadTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateQuadTree.m; sourceTree = "<group>"; };
+		C81D4FE9196D53AF00099DAC /* QuadTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadTree.h; sourceTree = "<group>"; };
+		C81D4FEA196D53AF00099DAC /* QuadTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadTree.m; sourceTree = "<group>"; };
+		C81D4FEC196D53AF00099DAC /* ClusterAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterAnnotationView.h; sourceTree = "<group>"; };
+		C81D4FED196D53AF00099DAC /* ClusterAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterAnnotationView.m; sourceTree = "<group>"; };
+		C81D4FF4196D53C500099DAC /* AnnotationClusterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationClusterViewController.h; sourceTree = "<group>"; };
+		C81D4FF5196D53C500099DAC /* AnnotationClusterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationClusterViewController.m; sourceTree = "<group>"; };
+		C81D4FF6196D53C500099DAC /* BaseMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMapViewController.h; sourceTree = "<group>"; };
+		C81D4FF7196D53C500099DAC /* BaseMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMapViewController.m; sourceTree = "<group>"; };
+		C81D4FF8196D53C500099DAC /* PoiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoiDetailViewController.h; sourceTree = "<group>"; };
+		C81D4FF9196D53C500099DAC /* PoiDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PoiDetailViewController.m; sourceTree = "<group>"; };
+		C81D5043196E3E4800099DAC /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKey.h; sourceTree = "<group>"; };
 		C84710B5196B96DC00ED0DD7 /* ClusterAnnotationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClusterAnnotationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C84710B8196B96DC00ED0DD7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C84710BA196B96DC00ED0DD7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,23 +70,8 @@
 		C8471118196BC56800ED0DD7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C847111A196BC57800ED0DD7 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		C847111C196BC58800ED0DD7 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
-		C8471124196BC70500ED0DD7 /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKey.h; sourceTree = "<group>"; };
 		C8471135196BC77D00ED0DD7 /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapSearchKit.framework; path = iOS_3D_ClusterAnnotation/extern/AMapSearchKit.framework; sourceTree = "<group>"; };
 		C8471147196BCA1300ED0DD7 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = iOS_3D_ClusterAnnotation/extern/MAMapKit.framework/Versions/2.2.1.1650.60159/Resources/AMap.bundle; sourceTree = "<group>"; };
-		C847114E196BCDEA00ED0DD7 /* AnnotationClusterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationClusterViewController.h; sourceTree = "<group>"; };
-		C847114F196BCDEA00ED0DD7 /* AnnotationClusterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationClusterViewController.m; sourceTree = "<group>"; };
-		C8471150196BCDEA00ED0DD7 /* BaseMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMapViewController.h; sourceTree = "<group>"; };
-		C8471151196BCDEA00ED0DD7 /* BaseMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMapViewController.m; sourceTree = "<group>"; };
-		C8471152196BCDEA00ED0DD7 /* PoiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoiDetailViewController.h; sourceTree = "<group>"; };
-		C8471153196BCDEA00ED0DD7 /* PoiDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PoiDetailViewController.m; sourceTree = "<group>"; };
-		C8471158196BCE5900ED0DD7 /* ClusterAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterAnnotationView.h; sourceTree = "<group>"; };
-		C8471159196BCE5900ED0DD7 /* ClusterAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterAnnotationView.m; sourceTree = "<group>"; };
-		C8471162196BCEA200ED0DD7 /* ClusterAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterAnnotation.h; sourceTree = "<group>"; };
-		C8471163196BCEA200ED0DD7 /* ClusterAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterAnnotation.m; sourceTree = "<group>"; };
-		C8471164196BCEA200ED0DD7 /* CoordinateQuadTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateQuadTree.h; sourceTree = "<group>"; };
-		C8471165196BCEA200ED0DD7 /* CoordinateQuadTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinateQuadTree.m; sourceTree = "<group>"; };
-		C8471168196BCEA200ED0DD7 /* QuadTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadTree.h; sourceTree = "<group>"; };
-		C8471169196BCEA200ED0DD7 /* QuadTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadTree.m; sourceTree = "<group>"; };
 		C8F1DB2E196D1A2C007BC6EC /* icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-40@2x.png"; path = "Resources/icon-40@2x.png"; sourceTree = "<group>"; };
 		C8F1DB2F196D1A2C007BC6EC /* icon-29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-29@2x.png"; path = "Resources/icon-29@2x.png"; sourceTree = "<group>"; };
 		C8F1DB30196D1A2C007BC6EC /* icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-60@2x.png"; path = "Resources/icon-60@2x.png"; sourceTree = "<group>"; };
@@ -98,6 +98,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C81D4FE3196D52EA00099DAC /* ClusterAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				C81D4FE4196D53AF00099DAC /* Model */,
+				C81D4FEB196D53AF00099DAC /* View */,
+			);
+			name = ClusterAnnotation;
+			sourceTree = "<group>";
+		};
+		C81D4FE4196D53AF00099DAC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C81D4FE5196D53AF00099DAC /* ClusterAnnotation.h */,
+				C81D4FE6196D53AF00099DAC /* ClusterAnnotation.m */,
+				C81D4FE7196D53AF00099DAC /* CoordinateQuadTree.h */,
+				C81D4FE8196D53AF00099DAC /* CoordinateQuadTree.m */,
+				C81D4FE9196D53AF00099DAC /* QuadTree.h */,
+				C81D4FEA196D53AF00099DAC /* QuadTree.m */,
+			);
+			name = Model;
+			path = ClusterAnnotation/Model;
+			sourceTree = "<group>";
+		};
+		C81D4FEB196D53AF00099DAC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C81D4FEC196D53AF00099DAC /* ClusterAnnotationView.h */,
+				C81D4FED196D53AF00099DAC /* ClusterAnnotationView.m */,
+			);
+			name = View;
+			path = ClusterAnnotation/View;
+			sourceTree = "<group>";
+		};
+		C81D4FF2196D53C500099DAC /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				C81D4FF3196D53C500099DAC /* Controller */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		C81D4FF3196D53C500099DAC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C81D4FF4196D53C500099DAC /* AnnotationClusterViewController.h */,
+				C81D4FF5196D53C500099DAC /* AnnotationClusterViewController.m */,
+				C81D4FF6196D53C500099DAC /* BaseMapViewController.h */,
+				C81D4FF7196D53C500099DAC /* BaseMapViewController.m */,
+				C81D4FF8196D53C500099DAC /* PoiDetailViewController.h */,
+				C81D4FF9196D53C500099DAC /* PoiDetailViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		C84710AC196B96DC00ED0DD7 = {
 			isa = PBXGroup;
 			children = (
@@ -137,12 +191,11 @@
 		C84710BE196B96DC00ED0DD7 /* iOS_3D_ClusterAnnotation */ = {
 			isa = PBXGroup;
 			children = (
+				C81D4FE3196D52EA00099DAC /* ClusterAnnotation */,
+				C81D4FF2196D53C500099DAC /* Demo */,
+				C8471123196BC70500ED0DD7 /* Configuration */,
 				C84710C7196B96DD00ED0DD7 /* AppDelegate.h */,
 				C84710C8196B96DD00ED0DD7 /* AppDelegate.m */,
-				C8471123196BC70500ED0DD7 /* Configuration */,
-				C847114D196BCDEA00ED0DD7 /* Controllers */,
-				C8471157196BCE5900ED0DD7 /* Views */,
-				C8471161196BCEA200ED0DD7 /* Models */,
 				C84710CA196B96DD00ED0DD7 /* Main.storyboard */,
 				C84710D0196B96DD00ED0DD7 /* Images.xcassets */,
 				C84710BF196B96DC00ED0DD7 /* Supporting Files */,
@@ -167,47 +220,9 @@
 		C8471123196BC70500ED0DD7 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				C8471124196BC70500ED0DD7 /* APIKey.h */,
+				C81D5043196E3E4800099DAC /* APIKey.h */,
 			);
 			path = Configuration;
-			sourceTree = "<group>";
-		};
-		C847114D196BCDEA00ED0DD7 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				C8471150196BCDEA00ED0DD7 /* BaseMapViewController.h */,
-				C8471151196BCDEA00ED0DD7 /* BaseMapViewController.m */,
-				C847114E196BCDEA00ED0DD7 /* AnnotationClusterViewController.h */,
-				C847114F196BCDEA00ED0DD7 /* AnnotationClusterViewController.m */,
-				C8471152196BCDEA00ED0DD7 /* PoiDetailViewController.h */,
-				C8471153196BCDEA00ED0DD7 /* PoiDetailViewController.m */,
-			);
-			name = Controllers;
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		C8471157196BCE5900ED0DD7 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				C8471158196BCE5900ED0DD7 /* ClusterAnnotationView.h */,
-				C8471159196BCE5900ED0DD7 /* ClusterAnnotationView.m */,
-			);
-			name = Views;
-			path = View;
-			sourceTree = "<group>";
-		};
-		C8471161196BCEA200ED0DD7 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				C8471162196BCEA200ED0DD7 /* ClusterAnnotation.h */,
-				C8471163196BCEA200ED0DD7 /* ClusterAnnotation.m */,
-				C8471164196BCEA200ED0DD7 /* CoordinateQuadTree.h */,
-				C8471165196BCEA200ED0DD7 /* CoordinateQuadTree.m */,
-				C8471168196BCEA200ED0DD7 /* QuadTree.h */,
-				C8471169196BCEA200ED0DD7 /* QuadTree.m */,
-			);
-			name = Models;
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,15 +294,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C81D4FF0196D53AF00099DAC /* QuadTree.m in Sources */,
 				C84710C9196B96DD00ED0DD7 /* AppDelegate.m in Sources */,
-				C8471156196BCDEA00ED0DD7 /* PoiDetailViewController.m in Sources */,
-				C847116D196BCEA200ED0DD7 /* QuadTree.m in Sources */,
+				C81D4FFB196D53C500099DAC /* BaseMapViewController.m in Sources */,
+				C81D4FEF196D53AF00099DAC /* CoordinateQuadTree.m in Sources */,
+				C81D4FFC196D53C500099DAC /* PoiDetailViewController.m in Sources */,
+				C81D4FFA196D53C500099DAC /* AnnotationClusterViewController.m in Sources */,
+				C81D4FF1196D53AF00099DAC /* ClusterAnnotationView.m in Sources */,
 				C84710C5196B96DC00ED0DD7 /* main.m in Sources */,
-				C847116B196BCEA200ED0DD7 /* CoordinateQuadTree.m in Sources */,
-				C847116A196BCEA200ED0DD7 /* ClusterAnnotation.m in Sources */,
-				C8471154196BCDEA00ED0DD7 /* AnnotationClusterViewController.m in Sources */,
-				C8471155196BCDEA00ED0DD7 /* BaseMapViewController.m in Sources */,
-				C847115E196BCE5900ED0DD7 /* ClusterAnnotationView.m in Sources */,
+				C81D4FEE196D53AF00099DAC /* ClusterAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
